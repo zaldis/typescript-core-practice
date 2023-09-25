@@ -1,0 +1,16 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Main",
+      "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron-forge-vscode-nix",
+      "windows": {
+        "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron-forge-vscode-win.cmd",
+      },
+      "console": "integratedTerminal",  // Required to build app on Windows: https://github.com/electron/forge/issues/2789
+      "cwd": "${workspaceFolder}"
+    }
+  ],
+}

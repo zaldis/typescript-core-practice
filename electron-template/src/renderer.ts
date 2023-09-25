@@ -28,4 +28,21 @@
 
 import './index.css';
 
+declare const versions: {
+    chrome: () => string,
+    node: () => string,
+    electron: () => string,
+    ping: () => Promise<string>,
+};
+
 console.log('👋 This message is being logged by "renderer.js", included via webpack');
+
+const versionsEl = document.getElementById('versions');
+versionsEl.innerText = `This app is using Chrome (v${versions.chrome()}), Node.js (v${versions.node()}), and Electron (v${versions.electron()})`;
+
+
+const func = async () => {
+    const response = await versions.ping();
+    console.log(response);
+}
+func();
