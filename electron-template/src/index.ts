@@ -32,7 +32,7 @@ const createWindow = (): void => {
   // Open the DevTools.
   mainWindow.webContents.openDevTools();
 
-  ipcMain.handle('ping', () => 'pong');
+  ipcMain.handle('log', (_, message: string) => console.log(message));
 };
 
 // This method will be called when Electron has finished

@@ -7,5 +7,8 @@ contextBridge.exposeInMainWorld('versions', {
     node: () => process.versions.node,
     chrome: () => process.versions.chrome,
     electron: () => process.versions.electron,
-    ping: () => ipcRenderer.invoke('ping'),
+});
+
+contextBridge.exposeInMainWorld('log', {
+    info:(message: string) => ipcRenderer.invoke('log', message),
 });
